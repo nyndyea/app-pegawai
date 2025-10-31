@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Kode yang BENAR untuk MEMBUAT tabel employees
         Schema::create('employees', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_lengkap', 100);
-            $table->string('email', 100);
-            $table->string('nomor_telepon', 15);
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
-            $table->date('tanggal_masuk');
-            $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
-            $table->timestamps();
+            $table->id(); // Membuat Primary Key 'id'
+            $table->string('nama_lengkap');
+            $table->string('email')->unique();
+            $table->timestamps(); // Membuat created_at dan updated_at
         });
     }
 
